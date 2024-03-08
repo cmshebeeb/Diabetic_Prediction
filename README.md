@@ -34,27 +34,27 @@ The Python script `main.py` contains the code for loading the dataset, preproces
 ```python
 python main.py
 Please provide the following information:
-Patient Name: John Doe
-Gender (Male/Female): Male
-Pregnancies: 2
-Glucose: 140
-Blood Pressure: 80
-Skin Thickness: 25
-Insulin: 120
-BMI: 28.5
-Diabetes Pedigree Function: 0.4
-Age: 35
+Patient Name: Mary Smith
+Gender (Male/Female): Female
+Pregnancies: 3
+Glucose: 180
+Blood Pressure: 90
+Skin Thickness: 35
+Insulin: 200
+BMI: 32.5
+Diabetes Pedigree Function: 0.7
+Age: 45
 
 Normal Range vs. Patient Value:
 Parameter                   Normal Range                                                    Patient Value
 ------------------------  --------------------------------------------------------------  ----------------
-Pregnancies                 No established normal range                                      2
-Glucose                     Typically below 100 mg/dL                                         140
-Blood Pressure              Normal (<120/<80 mmHg)                                            80
-Skin Thickness              No established normal range                                       25
-Insulin                     No established normal range                                      120
-BMI                         Normal (18.5-24.9), Overweight (25-29.9), Obesity (30 or higher)  28.5
-Diabetes Pedigree Function  No established normal range                                        0.4
-Age                         N/A                                                              35
+Pregnancies                 No established normal range                                      3
+Glucose                     Typically below 100 mg/dL                                         180
+Blood Pressure              Normal (<120/<80 mmHg)                                            90
+Skin Thickness              No established normal range                                       35
+Insulin                     No established normal range                                      200
+BMI                         Normal (18.5-24.9), Overweight (25-29.9), Obesity (30 or higher)  32.5
+Diabetes Pedigree Function  No established normal range                                        0.7
+Age                         N/A                                                              45
 
-The model predicts that John Doe, Age 35 does not have diabetes.
+The model predicts that Mary Smith, Age 45 has diabetes.
