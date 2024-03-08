@@ -36,25 +36,27 @@ python main.py
 Please provide the following information:
 Patient Name: Mary Smith
 Gender (Male/Female): Female
-Pregnancies: 3
-Glucose: 180
-Blood Pressure: 90
-Skin Thickness: 35
-Insulin: 200
-BMI: 32.5
+Pregnancies (times): 3
+Glucose (mg/dL): 180
+Blood Pressure (mmHg): 90
+Skin Thickness (mm): 35
+Insulin (μIU/mL): 200
+BMI (kg/m^2): 32.5
 Diabetes Pedigree Function: 0.7
-Age: 45
+Age (years): 45
 
 Normal Range vs. Patient Value:
-Parameter                   Normal Range                                                    Patient Value
-------------------------  --------------------------------------------------------------  ----------------
-Pregnancies                 No established normal range                                      3
-Glucose                     Typically below 100 mg/dL                                         180
-Blood Pressure              Normal (<120/<80 mmHg)                                            90
-Skin Thickness              No established normal range                                       35
-Insulin                     No established normal range                                      200
-BMI                         Normal (18.5-24.9), Overweight (25-29.9), Obesity (30 or higher)  32.5
-Diabetes Pedigree Function  No established normal range                                        0.7
-Age                         N/A                                                              45
+Parameter                   Normal Range                                                        Patient Value
+--------------------------  ----------------------------------------------------------------  ---------------
+Pregnancies                 No established normal range                                                   3
+Glucose                     Typically below 100 mg/dL                                                   180
+Blood Pressure              Normal (<120/<80 mmHg)                                                       90    
+Skin Thickness              No established normal range                                                  35    
+Insulin                     No established normal range                                                 200    
+BMI                         Normal (18.5-24.9), Overweight (25-29.9), Obesity (30 or higher)             32.5  
+Diabetes Pedigree Function  No established normal range                                                   0.7  
+Age                         N/A                                                                          45    
+Do you want to see the comparison chart? (yes/no): yes
+Mary Smith, Age 45: The model predicts that the patient has diabetes.
 
-The model predicts that Mary Smith, Age 45 has diabetes.
+![diabetes_eg](https://github.com/cmshebeeb/Diabetic_Prediction/assets/96789111/18d425d3-b6b5-4526-a399-c47b64b4f6a6)
