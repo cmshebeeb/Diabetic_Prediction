@@ -2,10 +2,14 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.naive_bayes import GaussianNB
 from tabulate import tabulate
+import matplotlib.pyplot as plt
 
 def predict_diabetes(data_path, use_feature_names=False):
     # Load the dataset
     data = pd.read_csv(data_path)
+
+    # Drop rows with missing target values
+    data = data.dropna(subset=['Outcome'])
 
     # Preprocessing
     label_encoder = LabelEncoder()
@@ -46,6 +50,7 @@ def predict_diabetes(data_path, use_feature_names=False):
 
     # Get user input with units
     print("Please provide the following information:")
+    patient_name = get_user_input("Patient Name: ")
     gender = label_encoder.transform([get_user_input("Gender (Male/Female): ")])[0]
     pregnancies = convert_to_numeric(get_user_input("Pregnancies (times): "), "pregnancies")
     glucose = convert_to_numeric(get_user_input("Glucose (mg/dL): "), "glucose")
@@ -56,9 +61,8 @@ def predict_diabetes(data_path, use_feature_names=False):
     diabetes_pedigree_function = convert_to_float(get_user_input("Diabetes Pedigree Function: "), "diabetes pedigree function")
     age = convert_to_numeric(get_user_input("Age (years): "), "age")
 
-    # Prepare data for tabulate
+    # Prepare data for tabulate, excluding Gender
     table_data = [
-        ["Gender", "N/A", gender],
         ["Pregnancies", "No established normal range", pregnancies],
         ["Glucose", "Typically below 100 mg/dL", glucose],
         ["Blood Pressure", "Normal (<120/<80 mmHg)", blood_pressure],
@@ -69,9 +73,29 @@ def predict_diabetes(data_path, use_feature_names=False):
         ["Age", "N/A", age]
     ]
 
-    # Display comparison table using tabulate with a smaller format
+    # Display comparison table using tabulate
     print("\nNormal Range vs. Patient Value:")
     print(tabulate(table_data, headers=['Parameter', 'Normal Range', 'Patient Value'], tablefmt='simple'))
+
+    # Ask user if they want to see the comparison chart
+    show_chart = get_user_input("Do you want to see the comparison chart? (yes/no): ")
+    if show_chart.lower() == 'yes':
+        # Plot comparison chart corrected to avoid TypeError
+        def plot_comparison_chart(data, patient_name, age):
+            parameters = [row[0] for row in data]
+            patient_values = [row[2] for row in data]
+            normal_range_values = [1 if row[2] == 1 else 0 for row in data] # Assuming 1 for normal, 0 for not normal
+
+            plt.bar(parameters, patient_values, color='blue', label='Patient Value')
+            plt.bar(parameters, normal_range_values, color='red', label='Normal Range')
+            plt.xlabel('Parameters')
+            plt.ylabel('Value')
+            plt.title(f"{patient_name}, Age {age}: Comparison of Patient Values to Normal Ranges")
+            plt.legend()
+            plt.show()
+
+        # Plot the comparison chart after displaying the table
+        plot_comparison_chart(table_data, patient_name, age)
 
     # Make prediction
     if use_feature_names:
@@ -83,8 +107,9 @@ def predict_diabetes(data_path, use_feature_names=False):
 
     # Print prediction
     if prediction[0] == 1:
-        print("The model predicts that the patient has diabetes.")
+        print(f"{patient_name}, Age {age}: The model predicts that the patient has diabetes.")
     else:
-        print("The model predicts that the patient does not have diabetes.")
+        print(f"{patient_name}, Age {age}: The model predicts that the patient does not have diabetes.")
 
+# Example usage
 predict_diabetes('diabetes_data.csv', use_feature_names=True)
