@@ -21,7 +21,7 @@ The Python script `main.py` contains the code for loading the dataset, preproces
 - Pandas: For data manipulation and analysis
 - Scikit-learn: For machine learning algorithms
 - Tabulate: For displaying comparison tables
-- matplotlib: For diasplay comparission map and heatmap
+- matplotlib: For display comparison map and heatmap
 
 ## Usage
 1. Clone the repository to your local machine.
@@ -34,28 +34,27 @@ The Python script `main.py` contains the code for loading the dataset, preproces
 ```python
 python main.py
 Please provide the following information:
+Patient Name: Mary Smith
 Gender (Male/Female): Female
-Pregnancies: 5
-Glucose: 120
-Blood Pressure: 80
-Skin Thickness: 30
-Insulin: 150
-BMI: 30
-Diabetes Pedigree Function: 0.5
-Age: 40
+Pregnancies: 3
+Glucose: 180
+Blood Pressure: 90
+Skin Thickness: 35
+Insulin: 200
+BMI: 32.5
+Diabetes Pedigree Function: 0.7
+Age: 45
 
 Normal Range vs. Patient Value:
 Parameter                   Normal Range                                                    Patient Value
 ------------------------  --------------------------------------------------------------  ----------------
-Gender                      N/A                                                             Female
-Pregnancies                 No established normal range                                      5
-Glucose                     Typically below 100 mg/dL                                         120
-Blood Pressure              Normal (<120/<80 mmHg)                                            80
-Skin Thickness              No established normal range                                       30
-Insulin                     No established normal range                                      150
-BMI                         Normal (18.5-24.9), Overweight (25-29.9), Obesity (30 or higher)  30.0
-Diabetes Pedigree Function  No established normal range                                        0.5
-Age                         N/A                                                              40
+Pregnancies                 No established normal range                                      3
+Glucose                     Typically below 100 mg/dL                                         180
+Blood Pressure              Normal (<120/<80 mmHg)                                            90
+Skin Thickness              No established normal range                                       35
+Insulin                     No established normal range                                      200
+BMI                         Normal (18.5-24.9), Overweight (25-29.9), Obesity (30 or higher)  32.5
+Diabetes Pedigree Function  No established normal range                                        0.7
+Age                         N/A                                                              45
 
-The model predicts that the patient does not have diabetes.
-
+The model predicts that Mary Smith, Age 45 has diabetes.
